@@ -1,4 +1,4 @@
-package com.example.jobtracker.model;
+package com.example.job_tracker_backend.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
@@ -13,9 +13,15 @@ public class JobApplication {
     private String role;
     private String status; // e.g., Applied, Interviewing, Offered, Rejected
     private LocalDate dateApplied;
+    private String applicationDetails;
 
-    // Getters and setters
-	public Long getId() {
+
+    @ManyToOne // Many job applications can belong to one job source
+    @JoinColumn(name = "job_source_id") // Foreign key column
+
+    private JobSource jobSource;
+
+    public Long getId() {
         return id;
     }
 
@@ -37,5 +43,21 @@ public class JobApplication {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getApplicationDetails() {
+        return applicationDetails;
+    }
+
+    public void setApplicationDetails(String applicationDetails) {
+        this.applicationDetails = applicationDetails;
+    }
+
+    public JobSource getJobSource() {
+        return jobSource;
+    }
+
+    public void setJobSource(JobSource jobSource) {
+        this.jobSource = jobSource;
     }
 }

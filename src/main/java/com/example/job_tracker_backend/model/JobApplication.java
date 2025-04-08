@@ -15,11 +15,15 @@ public class JobApplication {
     private LocalDate dateApplied;
     private String applicationDetails;
 
-
-    @ManyToOne // Many job applications can belong to one job source
-    @JoinColumn(name = "job_source_id") // Foreign key column
-
+    @ManyToOne
+    @JoinColumn(name = "job_source_id")
     private JobSource jobSource;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    // Getters and setters
 
     public Long getId() {
         return id;
@@ -45,6 +49,22 @@ public class JobApplication {
         this.role = role;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public LocalDate getDateApplied() {
+        return dateApplied;
+    }
+
+    public void setDateApplied(LocalDate dateApplied) {
+        this.dateApplied = dateApplied;
+    }
+
     public String getApplicationDetails() {
         return applicationDetails;
     }
@@ -59,5 +79,13 @@ public class JobApplication {
 
     public void setJobSource(JobSource jobSource) {
         this.jobSource = jobSource;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

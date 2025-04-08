@@ -15,6 +15,11 @@ public class JobApplication {
     private LocalDate dateApplied;
     private String applicationDetails;
 
+
+    @ManyToOne
+    @JoinColumn(name = "user_applications_id") // Foreign key for UserApplications
+    private UserApplications userApplications;
+    
     @ManyToOne
     @JoinColumn(name = "job_source_id")
     private JobSource jobSource;

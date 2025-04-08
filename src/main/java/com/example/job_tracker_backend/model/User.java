@@ -2,6 +2,8 @@ package com.example.job_tracker_backend.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -21,6 +23,7 @@ public class User {
 	private List<JobApplication> jobApplications;
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonManagedReference
 	private List<Resume> resumes;
 
 	// Getters and Setters

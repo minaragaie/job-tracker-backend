@@ -3,6 +3,8 @@ package com.example.job_tracker_backend.model;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Resume {
 
@@ -16,7 +18,8 @@ public class Resume {
     private String content;  // Optional: Resume content if stored as text
 
     @ManyToOne
-    @JoinColumn(name = "user_id")  // Foreign key to the User entity
+    @JoinColumn(name = "user_id")
+    @JsonBackReference
     private User user;
 
     // Constructors

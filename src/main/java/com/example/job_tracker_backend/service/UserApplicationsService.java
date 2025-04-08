@@ -26,7 +26,7 @@ public class UserApplicationsService {
 
     // Fetch UserApplications by jobApplicationId
     public List<UserApplications> getUserApplicationsByJobApplicationId(Long jobApplicationId) {
-        return userApplicationsRepository.findByJobApplicationId(jobApplicationId);
+        return userApplicationsRepository.findByJobApplications_Id(jobApplicationId);
     }
 
     // Fetch a specific UserApplication by ID

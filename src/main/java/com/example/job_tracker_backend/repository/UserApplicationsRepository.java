@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 public interface UserApplicationsRepository extends JpaRepository<UserApplications, Long> {
     // You can add custom queries if needed, such as finding by user or job application
     List<UserApplications> findByUserId(Long userId);
-    List<UserApplications> findByJobApplicationId(Long jobApplicationId);
+    List<UserApplications> findByJobApplications_Id(Long jobApplicationId);
 }

@@ -19,13 +19,9 @@ import com.example.job_tracker_backend.service.JobSourceService;
 @RequestMapping("/api/job-source")
 public class JobSourceController {
 
-    private final JobSourceService jobSourceService;
 	@Autowired
-	private JobSourceService JobSourceService;
+	private JobSourceService jobSourceService;
 
-    JobSourceController(JobSourceService jobSourceService) {
-        this.jobSourceService = jobSourceService;
-    }
 
 	@GetMapping
     public List<JobSource> getAllSources() {
